@@ -7,12 +7,16 @@
                 <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
             </div>
             <div class="float-right my-2">
-                <a class="btn btnsuccess" href="{{ route('mahasiswa.create') }}"> Input Mahasiswa</a>
+                <a class="btn btn-success" href="{{ route('mahasiswa.create') }}"> Input Mahasiswa</a>
             </div>
             <form action="{{ route('mahasiswa.index') }}" method="GET">
-                <div class="input-group mb-3">
-                  <input type="text" class="form-inline" name="search" placeholder="Cari mahasiswa..." value="{{ request()->input('search') }}">
-                  <button class="input-group-text" type="submit">Cari</button>
+                <div class="search" style="padding-left: 78%">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-inline" name="search" placeholder="Cari mahasiswa..." value="{{ request()->input('search') }}">
+                        <div class="button-cari" style="padding-left: 2px">
+                            <button class="input-group-text" type="submit">Cari</button>
+                        </div>
+                      </div>
                 </div>
             </form>
             @if($mahasiswas->isEmpty())
