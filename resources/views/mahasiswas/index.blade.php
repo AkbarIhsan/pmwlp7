@@ -1,5 +1,6 @@
 @extends('mahasiswas.layout')
 @section('content')
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left mt-2">
@@ -10,8 +11,8 @@
             </div>
             <form action="{{ route('mahasiswa.index') }}" method="GET">
                 <div class="input-group mb-3">
-                  <input type="text" class="form-control" name="search" placeholder="Cari mahasiswa..." value="{{ request()->input('search') }}">
-                  <button class="btn btn-outline-secondary" type="submit">Cari</button>
+                  <input type="text" class="form-inline" name="search" placeholder="Cari mahasiswa..." value="{{ request()->input('search') }}">
+                  <button class="input-group-text" type="submit">Cari</button>
                 </div>
             </form>
             @if($mahasiswas->isEmpty())
@@ -42,15 +43,15 @@
         <tr>
             <td>{{ $Mahasiswa->Nim }}</td>
             <td>{{ $Mahasiswa->Nama }}</td>
-            <td>{{ $Mahasiswa->Kelas }}</td>
+            <td>{{ $Mahasiswa->kelas->nama_kelas }}</td>
             <td>{{ $Mahasiswa->Jurusan }}</td>
             <td>{{ $Mahasiswa->NoHp }}</td>
             <td>{{ $Mahasiswa->email }}</td>
             <td>{{ $Mahasiswa->tanggalLahir }}</td>
             <td>
         <form action="{{ route('mahasiswa.destroy',$Mahasiswa->Nim) }}" method="POST">
-            <a class="btn btninfo" href="{{ route('mahasiswa.show',$Mahasiswa->Nim) }}">Show</a>
-            <a class="btn btnprimary" href="{{ route('mahasiswa.edit',$Mahasiswa->Nim) }}">Edit</a>
+            <a class="btn btn-info" href="{{ route('mahasiswa.show',$Mahasiswa->Nim) }}">Show</a>
+            <a class="btn btn-primary" href="{{ route('mahasiswa.edit',$Mahasiswa->Nim) }}">Edit</a>
         @csrf
 
         @method('DELETE')
@@ -61,6 +62,23 @@
         @endforeach
     </table>
 
-    {{ $mahasiswas->links() }}
+    <div class="text-center">
+        <ul class="pagination pagination-sm">
+          <li class="page-item">
+            <a class="page-link" href="{{ $mahasiswas->previousPageUrl() }}" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          {{ $mahasiswas->links("pagination::bootstrap-4") }}
+          <li class="page-item">
+            <a class="page-link" href="{{ $mahasiswas->nextPageUrl() }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+      
+      
 @endsection
 

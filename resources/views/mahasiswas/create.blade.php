@@ -20,35 +20,39 @@
                     </ul>
                 </div>
                 @endif
-                    <form method="post" action="{{ route('mahasiswa.store') }}" id="myForm">
+                    <form method="POST" action="{{ route('mahasiswa.store') }}" id="myForm">
                 @csrf
                     <div class="form-group">
                         <label for="Nim">Nim</label>
-                        <input type="text" name="Nim" class="formcontrol" id="Nim" aria-describedby="Nim" >
+                        <input type="text" name="Nim" class="form-control" id="Nim" aria-describedby="Nim" >
                     </div>
                     <div class="form-group">
                         <label for="Nama">Nama</label>
-                        <input type="Nama" name="Nama" class="formcontrol" id="Nama" aria-describedby="Nama" >
+                        <input type="name" name="Nama" class="form-control" id="Nama" aria-describedby="Nama" >
                     </div>
                     <div class="form-group">
-                        <label for="Kelas">Kelas</label>
-                        <input type="Kelas" name="Kelas" class="formcontrol" id="Kelas" aria-describedby="password" >
+                        <label for="kelas">Kelas</label>
+                        <select name="kelas" class="form-control">
+                            @foreach ($kelas as $Kelas)
+                            <option value="{{$Kelas->id}}">{{$Kelas->nama_kelas}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="Jurusan">Jurusan</label>
-                        <input type="Jurusan" name="Jurusan" class="formcontrol" id="Jurusan" aria-describedby="Jurusan" >
+                        <input type="Jurusan" name="Jurusan" class="form-control" id="Jurusan" aria-describedby="Jurusan" >
                     </div>
                     <div class="form-group">
                         <label for="NoHp">NoHp</label>
-                        <input type="NoHp" name="NoHp" class="formcontrol" id="NoHp" aria-describedby="NoHp" >
+                        <input type="NoHp" name="NoHp" class="form-control" id="NoHp" aria-describedby="NoHp" >
                     </div>
                     <div class="form-group">
                         <label for="email">email</label>
-                        <input type="email" name="email" class="formcontrol" id="email" ariadescribedby="email" >
+                        <input type="email" name="email" class="form-control" id="email" ariadescribedby="email" >
                     </div>
                     <div class="form-group">
                         <label for="tanggalLahir">Tanggal Lahir</label>
-                        <input type="tanggalLahir" name="tanggalLahir" class="formcontrol" id="tanggalLahir" ariadescribedby="tanggalLahir" >
+                        <input type="tanggalLahir" name="tanggalLahir" class="form-control" id="tanggalLahir" ariadescribedby="tanggalLahir" >
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
             </form>

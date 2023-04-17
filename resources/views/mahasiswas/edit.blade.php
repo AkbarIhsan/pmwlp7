@@ -24,31 +24,35 @@
         @method('PUT')
             <div class="form-group">
                 <label for="Nim">Nim</label>
-                <input type="text" name="Nim" class="formcontrol" id="Nim" value="{{ $Mahasiswa->Nim }}" ariadescribedby="Nim" >
+                <input type="text" name="Nim" class="form-control" id="Nim" value="{{ $Mahasiswa->Nim }}" ariadescribedby="Nim" >
             </div>
             <div class="form-group">
                 <label for="Nama">Nama</label>
-                <input type="text" name="Nama" class="formcontrol" id="Nama" value="{{ $Mahasiswa->Nama }}" ariadescribedby="Nama" >
+                <input type="text" name="Nama" class="form-control" id="Nama" value="{{ $Mahasiswa->Nama }}" ariadescribedby="Nama" >
             </div>
             <div class="form-group">
-                <label for="Kelas">Kelas</label>
-                <input type="Kelas" name="Kelas" class="formcontrol" id="Kelas" value="{{ $Mahasiswa->Kelas }}" ariadescribedby="Kelas" >
+                <label for="kelas">Kelas</label>
+                <select name="kelas" class="form-control">
+                    @foreach ($kelas as $Kelas)
+                    <option value="{{$Kelas->id}}">{{$Kelas->nama_kelas}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="form-group">
                 <label for="Jurusan">Jurusan</label>
-                <input type="Jurusan" name="Jurusan" class="formcontrol" id="Jurusan" value="{{ $Mahasiswa->Jurusan }}" ariadescribedby="Jurusan" >
+                <input type="Jurusan" name="Jurusan" class="form-control" id="Jurusan" value="{{ $Mahasiswa->Jurusan }}" ariadescribedby="Jurusan" >
             </div>
             <div class="form-group">
                 <label for="NoHp">NoHp</label>
-                <input type="NoHp" name="NoHp" class="formcontrol" id="NoHp" value="{{ $Mahasiswa->NoHp }}" ariadescribedby="NoHp" >
+                <input type="NoHp" name="NoHp" class="form-control" id="NoHp" value="{{ $Mahasiswa->NoHp }}" ariadescribedby="NoHp" >
             </div>
             <div class="form-group">
                 <label for="email">email</label>
-                <input type="email" name="email" class="formcontrol" id="email" value="{{ $Mahasiswa->email }}" ariadescribedby="email" >
+                <input type="email" name="email" class="form-control" id="email" value="{{ $Mahasiswa->email }}" ariadescribedby="email" >
             </div>
             <div class="form-group">
                 <label for="tanggalLahir">Tanggal Lahir</label>
-                <input type="tanggalLahir" name="tanggalLahir" class="formcontrol" id="tanggalLahir" value="{{ $Mahasiswa->tanggalLahir }}" ariadescribedby="tanggalLahir" >
+                <input type="tanggalLahir" name="tanggalLahir" class="form-control" id="tanggalLahir" value="{{ $Mahasiswa->tanggalLahir }}" ariadescribedby="tanggalLahir" >
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
