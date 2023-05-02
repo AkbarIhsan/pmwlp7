@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
+use App\Models\Mahasiswa_Matakuliah;
 use Illuminate\Http\Request;
 use App\Models\Kelas;
 class MahasiswaController extends Controller
@@ -138,5 +139,11 @@ class MahasiswaController extends Controller
     {
         Mahasiswa::find($Nim)->delete();
         return redirect()->route('mahasiswa.index')-> with('success', 'Mahasiswa Berhasil Dihapus');
+    }
+
+    public function khs($Nim)
+    {
+        $Mahasiswa = Mahasiswa::find($Nim);
+        return view('mahasiswas.khs', compact('Mahasiswa'));
     }
 };
