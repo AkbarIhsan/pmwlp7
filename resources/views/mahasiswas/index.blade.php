@@ -36,6 +36,7 @@
         <tr>
             <th>Nim</th>
             <th>Nama</th>
+            <th>Foto</th>
             <th>Kelas</th>
             <th>Jurusan</th>
             <th>NoHp</th>
@@ -47,6 +48,7 @@
         <tr>
             <td>{{ $Mahasiswa->Nim }}</td>
             <td>{{ $Mahasiswa->Nama }}</td>
+            <td><img width="100px" height="100px" src="{{ asset('storage/' . $Mahasiswa->foto)}}" alt="Foto Mahasiswa"></td>
             <td>{{ $Mahasiswa->kelas->nama_kelas }}</td>
             <td>{{ $Mahasiswa->Jurusan }}</td>
             <td>{{ $Mahasiswa->NoHp }}</td>
